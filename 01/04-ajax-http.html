@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+ <script>
+ 
+ var xhr = new XMLHttpRequest()
+
+ xhr.open('POST','./add.php')
+//  设置请求行
+
+ xhr.setRequestHeader('Foo','Bar')
+//  设置一个请求头，
+// 一旦你的请求体是  urlencoded  格式的内容，一定要设置请求头中  Content-Type   
+// 'application/x-www-form-urlencoded'
+
+ xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+
+
+ xhr.send('key1=value1&key2=value2')
+// xhr.send(null)
+//  以urlencoded   格式设置请求体
+
+// xhr.onreadystatechange = function(){
+//     if(this.readyState === 4){
+
+//         // 获取响应状态码
+//         console.log(this.status)//  200
+
+//         // 获取响应状态描述
+//         console.log(this.statusText)//OK
+
+//         // 获取响应头信息
+//         // 指定响应头
+//         console.log(this.getResponseHeader)//ƒ getResponseHeader() { [native code] }
+
+//         // 全部响应头
+//         console.log(this.getAllResponseHeader)//undefined
+
+//         // 获取响应体
+//         // 文本形式
+//         console.log(this.responseText)//array(0){}
+
+//         // XML形式，了解即可
+//     }
+// }
+
+ 
+ </script>   
+</body>
+</html>

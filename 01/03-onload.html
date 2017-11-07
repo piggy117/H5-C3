@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    var xhr = new XMLHttpRequest()
+
+    xhr.open('GET','time.php')
+
+    xhr.send(null)
+
+    // onload  是HTML5 中提供的XMLHTTPRequest   
+
+    xhr.onload = function(){
+        console.log(this.readyState)
+        console.log(this.responseText)
+    }
+    
+    </script>
+</body>
+</html>

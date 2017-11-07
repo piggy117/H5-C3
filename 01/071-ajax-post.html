@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #555;
+            opacity: .5;
+            text-align: center;
+            line-height: 300px;
+        }
+
+        #loading::after {
+            content: '加载中...';
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading"></div>
+    <table border="1">
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" id="username"></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input type="password" id="password"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="btn">登录</button></td>
+        </tr>
+    </table>
+    <script>
+        // 获取元素
+        var loading = document.getElementById("loading")
+        var username = document.getElementById("username")
+        var password = document.getElementById("password")
+        var btn = document.getElementById("btn")
+
+        // 确定事件
+        btn.onclick = function () {
+            loading.style.display = 'block'
+            // 函数内要做的事情
+            // 获取输入的内容
+            var usertxt = username.value
+            var passwordtxt = password.value
+            // console.log(usertxt)
+            // console.log(passwordtxt)
+            var xhr = new XMLHttpRequest()
+            xhr.open('POST', 'login1.php')
+            // 设置请求头content-type
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            xhr.send(`usertxt=${usertxt}&passwordtxt=${passwordtxt}`)
+            xhr.onreadystatechange = function () {
+                if (this.readyState !== 4) return
+                console.log(this.responseText)
+                loading.style.display = 'none'
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

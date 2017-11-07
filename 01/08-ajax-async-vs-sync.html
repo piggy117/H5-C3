@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    var xhrAsync = new XMLHttpRequest()
+    // open 方法的第三个参数，是async  可以传入一个布尔值，默认为true
+
+    xhrAsync.open('GET','time.php',true)
+    console.time('async')
+    xhrAsync.send()
+    console.log(xhrAsync.responseText)
+    // console.log('end request')
+
+    console.timeEnd('async')
+
+    // 同步模式  ajax  操作 会有楞等的情况
+    // 区别在于send方法会不会出现等待情况
+
+    // console.log('begin request')
+    var xhrSync = new XMLHttpRequest()
+    // open 方法  的第三个参数 是async  可以传入一个布尔值，默认为true
+    xhrSync.open('GET','time.php',false)
+    console.time('sync')
+    xhrSync.send()
+    console.log(xhrSync.responseText)
+    // console.log('end request')
+    console.timeEnd('sync') 
+    </script>
+</body>
+</html>

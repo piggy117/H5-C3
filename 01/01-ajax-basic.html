@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    // 涉及到AJAX  操作的页面  “不能”  使用文件协议访问，（文件的方式访问）（右键点击）
+
+
+    // AJAX  是一套  API 核心提供的类型，XMLHTTPRequest
+    // 1，安装浏览器（用户代理）
+    var xhr = new XMLHttpRequest()
+    // 如果需要捕获第一个状态的变化，需要注意代码的执行顺序问题，（不要出现来不及的问题）
+    // xhr.onreadystatechange = function(){
+        // 这个事件并不是只在响应时触发，状态改变就触发，
+        // console.log(this.readyState)
+    // }
+
+    // 2,打开浏览器，输入网址
+    xhr.open('GET','./time.php')
+
+    // 3,敲回车，开始请求
+    xhr.send()
+    // 因为客户永远不知道，服务端何时才能返回我们需要的响应，
+    // 所以  AJAX  API  采用事件的机制（通知的感觉）
+    xhr.onreadystatechange = function (){
+        // 这个事件并不是只在响应式就触发，而是  在 xhr 状态改变的时候就触发
+        if(this.readyState !== 4)return
+        // 获得响应的内容（响应体）
+        console.log(this.responseText)
+    }
+    // 因为响应需要时间，所以无法通过返回值的方式响应
+    
+
+    // 4,等待响应
+    // 5，看结果
+    </script>
+</body>
+</html>
