@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    // break 破坏 破坏循环，终止整个循环
+    // continue 继续，跳出本循环，继续下一次循环
+
+    // 求整数50-200的第一个能被7 整除的数
+    for(var i = 50; i <= 200; i++){
+        if(i % 7 == 0){
+            console.log(i);
+            break;
+            // 当获取到第一个被7整除的数之后，break，终止整个循环
+        }
+    }
+
+
+    // 求整数 1-100 的累加值，单要求跳过所有个位数为3 的数
+    var sum = 0;
+    for(var i = 1 ; i <= 100;i++){
+        if(i % 10 == 3){
+            continue;
+        }
+        sum += i;
+    }
+    console.log(sum);
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    // 求一组数中的所有数的和  还有平均值
+    // var numbers = [23,45,234,12,546];
+    // var sum = 0;
+    // var avg;
+    // for(var i = 0;i < numbers.length;i++){
+    //     sum += numbers[i];
+    // }
+    // console.log(sum);
+    // console.log(sum/numbers.length);
+
+
+
+    // 求一组数中的 最大值和最小值， 以及所在位置（最大值和最小值在这组数组中的位置
+    // var numbers = [23,45,234,12,546];
+
+    // 求最大值：
+    // var max = numbers[0];
+    // var min = numbers[0];
+    // var min_index = 0;
+    // var max_index = 0;
+    // for(var i = 0 ; i < numbers.length;i++){
+    //     if(max < numbers[i]){
+    //         max = numbers[i];
+    //         max_index = i;
+    //     }
+    //     if(min > numbers[i]){
+    //         min = numbers[i];
+    //         min_index = i;
+    //     }
+    // }
+    // console.log(max);
+    // console.log(max_index);
+    // console.log(min);
+    // console.log(min_index);
+
+
+
+
+    // 将字符串数组用   |   或者其他符号分割
+    // var names = ['孙悟空','紫霞仙子','青霞','六耳猕猴'];
+
+    // var str=names[0];
+    // for(var i = 1 ; i < names.length;i++){
+    //     str += "|" + names[i];
+    // }
+    // console.log(str);
+
+
+
+    // 要求将数组中 的  0   项去掉，将不为0 的值存入一个新的数组，生成新的数组
+
+    // var numbers = [2,3,4,5,6,7,8];
+    // var arr = [];
+    // for(var i = 1; i <numbers.length;i++){
+    //     arr[arr.length] = (numbers[i]);
+    // }
+    // console.log(arr);
+    // arr.unshift(2);
+    // console.log(arr);
+    // arr.shift();
+    // console.log(arr);
+    // arr.push(2);
+    // console.log(arr);
+
+
+
+    // 翻转数组  1,2,3,4  ==> 4,3,2,1
+
+    var arr = [1,2,3,4];
+    var newArr = [];
+    for(var i = arr.length-1; i >= 0; i--){
+        newArr[newArr.length] = arr[i];
+    }
+    console.log(newArr);
+    
+
+    
+    
+    </script>
+</body>
+</html>
