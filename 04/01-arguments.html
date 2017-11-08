@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    var a = 10;
+    var b = 20;
+    var c = 30;
+
+    console.log(a,b,c);
+
+    function test(){
+        console.log(a,b,c);
+    }
+    test(a);//这个输出的是   10,20,30
+    // 函数里面 明明没有 abc的赋值，但是缺可以获得，这就是js中的函数作用域，在函数里面如果找不到，会向外一直找，直到找到为止，如果，找不到，那么则会报错
+    // 如果  在test(a),里面，像这样，传参，即使只传入一个参数，也会打印出全部
+
+    function test1 (){
+        function test(){
+        console.log(a,b,c);
+    }
+    }
+    test1(a);//什么都打印不出来
+
+
+    // function test(){
+    //     console.log('你好');
+    //     // arguments 是一个特殊的对象，在每个函数中都有arguments，且它是一个伪数组，（就是有数组得length，但是却没有数组的方法
+    //     console.log(arguments);
+    // }
+    // test(12,3,2);
+
+
+
+    // 求任意个数数的最大值
+    // function getMax(){
+    //     // 假设arguments中的索引为0 的数最大
+    //     var max = arguments[0];
+    //     for(var i = 1; i < arguments.length;i++){
+    //         if(arguments[i] > max){
+    //             max = arguments[i];
+    //         }
+    //     }
+    //     return max;
+    // }
+    // var result = getMax(2,34,1);
+    // console.log(result);
+
+
+
+    // 在实际运用中，函数如果需要声明参数，请务必声明参数，arguments只在特殊场景下使用
+    // 并且，使用arguments时，不需要传参，因为arguments不固定
+
+    // 求任意个数的和
+    // function getSum(){
+    //     var sum = 0;
+    //     for(var i = 0; i < arguments.length;i++){
+    //         sum += arguments[i];
+    //     }
+    //     return sum;
+    // }
+    // var ar = getSum(1,2,3);
+    // console.log(ar);
+
+
+
+
+    
+    </script>
+</body>
+</html>
