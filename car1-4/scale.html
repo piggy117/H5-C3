@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        width: 1000px;
+        height: 400px;
+        position:absolute;
+        top:0;
+        left:0;
+        transform-origin:right bottom;
+        transition:all 6s linear 1s;
+    }
+    /* 当鼠标点击的时候，会缩小 */
+    div:hover {
+        transform:scale(0.1);
+    }
+    </style>
+</head>
+<body>
+    <div><img src="images/02-goods.png" alt=""></div>
+</body>
+</html>
+
+
+.screen02 .input .search{
+    position: absolute;
+    /* 最后的位置，并缩小 */    
+    right:147px;
+    top:113px;
+    animation:search02 3s linear forwards;    
+    /* 在电脑中间的位置 */
+    /* top:252px;
+    right:347px; */
+    /* 最初的位置 */
+    /* top:113px;
+    right:-100px; */
+}
+.screen02 .input .key{
+    position: absolute;
+    /* 最后的位置，并缩小 */
+    top:117px;
+    right:205px;
+    opacity:0;
+    /* 在电脑中间的位置 */    
+    /* top:257px;
+    right:406px; */
+        /* 最初的位置 */
+        /* top:257px;
+        right:-100px;     */
+}
+.screen02 .input .search02.now{
+    animation:search02 3s linear forwards;    
+}
+.screen02 .input .key.now{
+    animation:key02 3s linear forwards;    
+}
+/* search的动画 */
+@keyframes search02 {
+    0%{
+        transform:translate(-100px 113px);
+    }
+    33%{
+        transform:translate(347px 252px);        
+    }
+    67%{
+        transform:translate(347px 252px);        
+    }
+    100%{
+        transform:scale(0.8);    
+    }
+}
+
+/* key的动画 */
+@keyframes key02 {
+    0%{
+        transform:translate(-100px 257px);
+    }
+    33%{
+        transform:translate(406px 257px);        
+    }
+    67%{
+        opacity:1;
+        transform:translate(406px 257px);        
+    }
+    100%{
+        opacity:1;
+        transform:scale(0.8);    
+    }
+}
