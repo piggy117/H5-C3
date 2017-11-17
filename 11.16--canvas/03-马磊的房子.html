@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas{
+        margin:100px;
+        padding:0;
+        border:1px solid skyblue;
+    }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+    // 获取canvas
+    var myCanvas = document.querySelector("canvas");
+    //  获取工具
+    var ctx = myCanvas.getContext('2d');
+    // 开始一条新的路径
+    ctx.beginPath();
+    // 移动画笔
+    ctx.moveTo(400,90);
+    // 绘制路径
+    ctx.lineTo(450,90);
+    ctx.lineTo(450,200);
+    ctx.lineTo(400,200);
+    // 自动闭合
+    ctx.closePath();
+
+    // 描边
+    ctx.stroke();
+    // 填充颜色
+    ctx.fillStyle = "brown";
+    // 填充
+    ctx.fill();
+
+
+    // 开始一个新的路径
+    ctx.beginPath();
+    // 移动画笔
+    ctx.moveTo(300,50);
+    // 绘制路径
+    ctx.lineTo(500,250);
+    ctx.lineTo(100,250);
+    // 自动闭合
+    ctx.closePath();
+    // 填充颜色
+    ctx.fillStyle = "red";
+    // 填充
+    ctx.fill();
+    
+
+    // 开始一个新的路径
+    ctx.beginPath();
+    // 移动画笔
+    ctx.moveTo(500,550);
+    // 绘制路径
+    ctx.lineTo(500,250);
+    ctx.lineTo(100,250);
+    ctx.lineTo(100,550);
+    // 自动闭合
+    ctx.closePath();
+    // 填充颜色
+    ctx.fillStyle= "skyblue";
+    // 填充
+    ctx.fill();
+
+
+    // 开始一个新的路径
+    ctx.beginPath();
+        // 填充颜色
+    ctx.fillStyle = "white";
+    // 画一个矩形
+    ctx.fillRect(200,350,100,100);
+
+    // 开始一个新的路径
+    ctx.beginPath();
+    // 移动画笔
+    ctx.moveTo(250,350);
+    // 绘制路径
+    ctx.lineTo(250,450);
+    // 设置线条的宽度
+    ctx.lineWidth = 15;
+    // 设置线条的颜色
+    ctx.strokeStyle = "brown";
+    // 描边
+    ctx.stroke();
+
+    // 开始一个新的路径
+    ctx.beginPath();
+    // 移动画笔
+    ctx.moveTo(200,400);
+    // 绘制路径
+    ctx.lineTo(300,400);
+    // 设置线条的宽度
+    ctx.lineWidth = 15;
+    // 设置线条的颜色
+    ctx.strokeStyle = "brown";
+    // 描边
+    ctx.stroke();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

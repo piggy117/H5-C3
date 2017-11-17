@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border:1px solid skyblue;
+    }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+    <script>
+    // 获取元素canvas
+    var myCanvas = document.querySelector('canvas');
+    // 获取工具
+    var ctx = myCanvas.getContext('2d');
+    // 1,绘制两个正方形
+    // 开始新的路径
+    // ctx.beginPath();
+    // // 移动画笔
+    // ctx.moveTo(200,200);
+    // // 绘制路径
+    // ctx.lineTo(500,200);
+    // ctx.lineTo(500,500);
+    // ctx.lineTo(200,500);
+    // // 自动闭合
+    // ctx.closePath();
+    // // 设置线条的宽度
+    // ctx.lineWidth = 10;
+    // // 设置宽度的颜色
+    // ctx.strokeStyle = "orange";
+    // // 描边
+    // ctx.stroke();
+    // // 填充颜色
+    // ctx.fillStyle = "red";
+    // // 填充
+    // ctx.fill();
+
+    // // 开始一个新的路径
+    // ctx.beginPath();
+    // // 移动画笔
+    // ctx.moveTo(300,300);
+    // // 绘制路径
+    // ctx.lineTo(300,400);
+    // ctx.lineTo(400,400);
+    // ctx.lineTo(400,300);
+    // // 自动闭合
+    // ctx.closePath();
+    // // 描边
+    // ctx.stroke();
+    // ctx.fillStyle = "skyblue";
+    // // 填充
+    // ctx.fill();
+
+
+    // 绘制路径
+    ctx.moveTo(200,200);
+    ctx.lineTo(200,400);
+    ctx.lineTo(400,400);
+    ctx.lineTo(400,200);
+    ctx.closePath();
+
+    ctx.moveTo(100,100);
+    ctx.lineTo(500,100);
+    ctx.lineTo(500,500);
+    ctx.lineTo(100,500);
+    ctx.closePath();
+
+    ctx.fill();
+    // 不管是逆时针还是顺时针，都有值，顺时针是正值  1  逆时针是  -1   如果有两条或者两条以上的线条，那么可以相加或者，相减，
+    // 只有  值为   0   时，，才不会被填充，其他的情况不管是正值还是负值都会被填充
+
+
+
+    </script>
+</body>
+</html>
