@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas{
+        border:1px solid skyblue;
+    }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="600" ></canvas>
+    <script>
+    var Person = function(ctx){
+        // ctx
+        this.ctx = ctx || document.querySelector('canvas').getContext('2d');
+
+        // 中心点
+        this.x0 = this.ctx.canvas.width/2;
+        this.y0 = this.ctx.canvas.height/2;
+
+        // 人物的宽高
+        // 这个是需要在加载完成的时候才能获得到的
+
+    }
+
+    Person.prototype.init = function(){
+        var that = this;
+        
+    }
+    </script>
+</body>
+</html>

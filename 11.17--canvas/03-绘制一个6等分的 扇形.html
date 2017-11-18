@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+
+        // 获取canvas宽高
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+
+        //分成几等分
+        var num = 60;
+
+        // 一份多少弧度
+        var angle = Math.PI * 2 /num;
+
+        // 原点坐标
+        var x0 = w/2;
+        var y0 = h/2;
+
+        // 随机获取颜色
+        var getRandomColor = function(){
+            var r = Math.floor(Math.random()*256);
+            var g = Math.floor(Math.random()*256);
+            var b = Math.floor(Math.random()*256);
+            return 'rgb(' + r + ','+g+','+b+')';
+        }
+
+        // 上一次绘制的结束弧度等于当前次的起始弧度
+        // var startAngle = 0;
+        for(var i = 0; i <num; i++){
+            var startAngle = i * angle;
+            var endAngle = (i + 1) * angle;
+            ctx.beginPath();
+            ctx.moveTo(x0,y0);
+            ctx.arc(x0,y0,150,startAngle,endAngle);
+            ctx.fillStyle = getRandomColor();
+            ctx.fill();
+        }
+    </script>
+</body>
+
+</html>

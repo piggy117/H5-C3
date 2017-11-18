@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid skyblue;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+        // 绘制圆弧
+
+        // 确定圆点
+        // 坐标  x,y
+        // 确定半径：r
+        // 确定  其实绘制的位置 和结束绘制的位置，这两点能确定弧的长度和位置
+        // startAngle  endAngle
+        // 确定绘制的方向，direction
+
+        // 在中心位置，画一个半径为150px的圆弧，位置在右下角
+        // var w = ctx.canvas.width;
+        // var h = ctx.canvas.height;
+        // ctx.arc(w/2,h/2,150,0,Math.PI/2,true);
+        // ctx.stroke();
+
+
+
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+        // 在画布的中心绘制一段文字
+        // 声明一段文字
+        var str = '你是逗比吗fyx';
+        // 确定画布的中心
+        // 画一个十字架。在画布的中心
+        ctx.beginPath();
+        ctx.moveTo(0, h / 2 - 0.5);
+        ctx.lineTo(w, h / 2 - 0.5);
+        ctx.moveTo(w / 2 - 0.5, 0);
+        ctx.lineTo(w / 2 - 0.5, h);
+        ctx.stroke();
+        // 绘制文本
+        ctx.font = '30px Microsoft YaHei';
+        ctx.textAlign = 'start';
+        ctx.textBaseline = 'middle';
+        // ctx.direction = 'rtl';
+
+        // ctx.strokeText(str, w / 2, h / 2);
+        ctx.fillText(str, w / 2, h / 2);
+    </script>
+</body>
+
+</html>
