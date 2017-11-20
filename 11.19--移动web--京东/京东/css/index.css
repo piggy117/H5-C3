@@ -1,0 +1,361 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    /* 同意元素的尺寸计算方式为从边框开始计算 */
+    -webkit-box-sizing:border-box;
+    /* -webkit-box-sizing:border-box; */
+    /* tap 轻触，highlight 高亮  */
+    -webkit-tap-highlight-color:transparent;
+    /* 移动端是webkit的内核，所以要兼容， */
+}
+body{
+    font-size:14px;
+    color:#333;
+    font-family:"Microsoft YaHei",sans-serif;
+}
+a{
+    text-decoration:none;
+    color:#333;
+}
+ul{
+    list-style:none;
+}
+input[type="text"],input[type="password"],input[type="search"],textarea{
+    border:0;
+    outline:none;
+    resize:none;
+    /* 针对文本域，不让拉伸 */
+
+    /* 在移动端，输入框有立体样式，默认样式   全部清除，都不要*/
+    -webkit-appearance: none;
+}
+
+/* ===============common  css ======== */
+.f_left{
+    float:left;
+}
+.f_right{
+    float:right;
+}
+.clearfix::before,
+.clearfix::after{
+    content:"";
+    display: block;
+    visibility: hidden;
+    line-height:0;
+    height:0;
+    clear:both;
+}
+.ml10{
+    margin-left:10px;
+}
+.mr10{
+    margin-right:10px;
+}.mt10{
+    margin-top:10px;
+}.mb10{
+    margin-bottom:10px;
+}
+
+/*使用精灵图*/
+[class^="icon_"],[class*=" icon_"]{
+    background: url("../images/sprites.png") no-repeat 10000px 10000px/ 200px 200px;
+}
+/* 交集，不仅要含有 icon_    并且要以icon_  为开头  */
+
+/* 主题容器 */
+.jd{
+    background:#F1EEEE;    
+}
+.jd_layout{
+    width:640px;
+    height: 40px;
+    margin:0 auto; 
+    background: #E85151;
+    position:relative;
+}
+.jd_layout .ico_logo{
+    position: absolute;
+    top:4px;
+    left:0px;
+    width:60px;
+    height:36px;
+    background: url("../images/sprites.png") no-repeat;
+    background-size: 200px 200px;
+    background-position: 2px -104px;
+}
+.jd_layout .jd_search {
+    position: absolute;
+    top:4px;
+    left: 63px;
+    width:530px;
+    height:32px;
+}
+.jd_layout .jd_search .searchBox{
+    width:100%;
+    height:100%;
+}
+.jd_layout .jd_search .searchBox .icon_search{
+    position:absolute;
+    top:7px;
+    left:5px;
+    width:20px;
+    height:20px;
+    background: url("../images/sprites.png") no-repeat;
+    background-size: 200px 200px;
+    background-position: -59px -109px;
+}
+.jd_layout .jd_search .searchBox .search{
+    width:100%;
+    height: 100%;
+    border-radius:25px;
+    padding-left:30px;    
+}
+.jd_layout .login{
+    position: absolute;
+    top:0px;
+    right:10px;
+    color:#fff;
+    font-size:14px;
+    line-height:40px;
+    display: block;
+    margin-left:10px;
+}
+
+/* 轮播图 */
+.jd_banner {
+    width: 640px;
+    height: 320px;
+    margin:0 auto;
+    overflow:hidden;
+    position:relative;
+}
+.jd_banner .bannerImg{
+    width:1000%;
+    height: 100%;
+    transform:translate(-10%);
+    -webkit-transform:translate(-10%);    
+}
+.jd_banner .bannerImg li{
+    float: left;
+    width:10%;
+    height: 100%;
+}
+.jd_banner .bannerImg li a{
+    width:100%;
+    height:100%;
+}
+.jd_banner .bannerImg li a img{
+    width:100%;
+    height:100%;
+}
+
+
+/* circle */
+.jd_banner .bannerCircle {
+    width:120px;
+    height: 10px;
+    position: absolute;
+    bottom:6px;
+    left: 50%;
+    margin-left:-60px;
+}
+.jd_banner .bannerCircle li{
+    float: left;
+    width:6px;
+    height:6px;
+    margin-right:10px;    
+}
+.jd_banner .bannerCircle li:last-child{
+    margin-right:0;
+}
+.jd_banner .bannerCircle li a{
+    display:block;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    border:1px solid #fff;
+}
+
+/* 给圆圈加背景颜色 */
+.jd_banner .bannerCircle .active{
+    background-color: #fff;
+}
+
+
+/* 导航 */
+.jd_nav {
+    width:640px;
+    height: 152px;
+    margin:0 auto;
+    background: #fff;
+    padding-top:10px; 
+    padding-left:80px; 
+    border-bottom:1px solid #ddd;  
+}
+.jd_nav ul {
+    width:100%;
+    height: 100%;
+    margin:0 auto;
+}
+.jd_nav ul li{
+    width:25%;
+    height: 50%;
+    float:left;
+}
+.jd_nav ul li a{
+    width:25%;
+    height: 50%;
+}
+.jd_nav ul li a span{
+    display:block;
+    margin-left:6px;
+}
+
+/* 秒杀 */
+.sk{
+    width: 630px;
+    height: 250px;
+    margin:0 auto;
+    margin-top:10px;
+    background-color: #fff;
+}
+.sk .skBox{
+    width: 630px;
+    height: 40px;
+}
+.sk .icon_time,
+.sk .sk_title,
+.sk .sk_time{
+    float: left;
+    text-align:center;
+    line-height:40px;
+    font-size:14px;
+    color:#E85151;
+}
+.sk .sk_time{
+    margin-left:10px;
+}
+.sk .sk_time span{
+    padding:3px;
+    padding-top:0;
+    padding-bottom:0;
+    font-size:10px;
+    margin-top:12px;
+    width:14px;
+    height:14px;
+    color:white;    
+    background-color: #000;
+}
+.sk .icon_time{
+    margin:10px;
+    margin-top:4px;
+    margin-bottom:0;
+}
+.sk .sk_more{
+    float:right;
+    text-align:center;
+    line-height:40px;
+    margin-right:10px;
+}
+.sk .sk_img{
+    width: 630px;
+    height: 176px;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.sk .sk_img ul {
+    width:100%;
+    height: 100%;
+    margin:0 auto;
+}
+.sk .sk_img ul li{
+    width:33.33%;
+    height: 100%;
+    float:left;
+    text-align:center;
+}
+.sk .sk_img ul li a{
+    display:block;
+    width:100%;
+    height: 134px;
+    border-right:1px solid #ccc;
+}
+.sk .sk_img ul li:last-child a{
+    border-right:0;
+}
+.sk .sk_img ul li p{
+    text-align:center;
+    font-size:10px;
+    color:#E85151;
+}
+.sk .sk_img ul li p:last-child{
+    text-decoration:line-through;
+    color:#6C6A6A;
+    margin-top:6px;
+    margin-bottom:6px;
+}
+
+/* 商品 */
+.jd_product{
+    background-color: #fff;
+    width: 630px; 
+    margin:0 auto; 
+    margin-top:10px;    
+}
+.jd_product .jd_title {
+    width:100%;
+    height:34px;
+    margin:0 auto; 
+    line-height:34px;  
+    border-bottom:1px solid #ddd; 
+}
+.jd_product .jd_title h3{
+    margin-left:20px;
+    font-weight:normal;
+    position:relative;    
+}
+.jd_product .jd_title h3::before{
+    content:"";
+    width:3px;
+    height: 12px;
+    position: absolute;
+    top:11px;
+    left:-10px;
+    background-color: #E85151;
+}
+.jd_product .jdP{
+    width: 100%;
+    height:341px;
+    overflow:hidden;
+}
+.jd_product .jdP  li:first-child{
+    width: 50%;
+}
+.jd_product .jdP  li:nth-child(2),
+.jd_product .jdP  li:nth-child(3){
+    width: 50%;
+}
+.jd_product .jdP li:first-child a img{
+    width: 100%;
+}
+.jd_product .jdP  li:nth-child(2) a img,
+.jd_product .jdP  li:nth-child(3) a img{
+    width: 100%;
+}
+.jd_product .jdP li a img{
+    display:block;
+}
+.jd_product .jdP .border_l{
+    border-left:1px solid #ccc;
+}
+.jd_product .jdP .border_r{
+    border-right:1px solid #ccc;    
+}
+.jd_product .jdP .border_b{
+    border-bottom:1px solid #ccc;    
+}
+
+
