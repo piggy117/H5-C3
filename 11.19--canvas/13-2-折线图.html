@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>折线图</title>
+    <style>
+    canvas{
+        border:2px solid skyblue;
+    }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="600"></canvas>
+    <script>
+    // 属性
+    var Line = function(ctx){
+        this.ctx = ctx || document.querySelector('canvas').getContext('2d');
+        // 网格的大小
+        this.gridSize = 6;
+        
+        // canvas 的宽高
+        this.w = this.ctx.canvas.width;
+        this.h = this.ctx.canvas.height;
+
+        // 箭头的大小
+        this.arrow = 10;
+
+        // 点的大小
+        this.dottedSize = 8;
+
+        // 坐标轴离 边边的距离
+        this.space = 12;
+
+        // 原点
+        this.x0 = this.space;
+        this.y0 = this.h - this.space;
+
+    }
+
+    // 给line方法
+    Line.prototype.init=function(data){
+        // 表格的渲染
+        this.grid();
+        // 坐标轴的渲染
+        this.axes();
+        // 折线和点的渲染
+        this.dotted(data);
+    }
+
+    // 表格
+    Line.prototype.grid = function(){
+        // X轴方向的网线
+        // X轴网线的多少取决于 canvas的height
+        var numX = this.h/this.gridSize;
+        for(var i = 1; i <=numX;i++){
+            this.ctx.beginPath();
+            this.ctx.moveTo(0,i * this.gridSize-0.5);
+            this.ctx.lineTo(this.w,i * this.gridSize-0.5);
+            this.ctx.strokeStyle = 'yellow';
+            this.ctx.stroke();
+        }
+
+        // Y轴方向的网线
+        // 同样。Y轴方向的网线的多少取于canvas的宽度
+        var numY = this.w/this.gridSize;
+        for(var i = 0;i <= numY;i++){
+            this.ctx.beginPath();
+            this.ctx.moveTo(i * this.gridSize-0.5,0);
+            this.ctx.lineTo(i * this.gridSize-0.5, this.h);
+            this.ctx.strokeStyle = 'yellow';
+            this.ctx.stroke();
+        }
+    }
+
+    // 坐标轴
+    Line.prototype.axes=function(){
+        // X轴
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.x0,this.y0);
+        this.ctx.lineTo(this.w-this.space,this.y0);
+        // 箭头
+        this.ctx.lineTo(this.w-this.space-this.arrow,this.y0+this.arrow/2);
+        this.ctx.lineTo(this.w-this.space-this.arrow,this.y0-this.arrow/2);
+        this.ctx.lineTo(this.w-this.space,this.y0);
+        this.ctx.strokeStyle='orange';
+        this.ctx.stroke();
+        this.ctx.fillStyle='orange';
+        this.ctx.fill();
+
+        // Y轴
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.x0,this.y0);
+        this.ctx.lineTo(this.x0,this.space);
+
+        // 箭头
+        this.ctx.lineTo(this.x0+this.arrow/2,this.space+this.arrow);
+        this.ctx.lineTo(this.x0-this.arrow/2,this.space+this.arrow);
+        this.ctx.lineTo(this.x0,this.space);
+        this.strokeStyle = 'orange';
+        this.ctx.stroke();
+        this.ctx.fillStyle = 'orange';
+        this.ctx.fill();
+    }
+
+    // dotted
+    Line.prototype.dotted = function(data){
+        var that = this;
+
+        // 记录下每一个初始点，然后后面连线
+        var startX = 0;
+        var startY = 0;
+
+        // 结束点
+
+        // 描点
+        // 由于数据data是可变的，所以我们要遍历
+        data.forEach(function(item,index){
+            var endX = item.x;
+            var endY = item.y;
+
+            that.ctx.beginPath();
+            that.ctx.fillRect(item.x-that.dottedSize/2,item.y-that.dottedSize/2,8,8);
+            that.ctx.fillStyle = 'red';
+
+            // 当是第一个点的时候，起点是  原点
+            if(index == 0){
+                that.ctx.beginPath();
+                that.ctx.moveTo(that.x0,that.y0);
+                that.ctx.lineTo(endX,endY);
+            }else{
+                that.ctx.beginPath();
+                that.ctx.moveTo(startX,startY);
+                that.ctx.lineTo(item.x,item.y);
+            }
+            that.ctx.strokeStyle='green';
+            that.ctx.stroke();
+            
+            startX = endX;
+            startY = endY;
+        })
+    }
+
+    // 数据
+    var data = [
+        {
+            x:100,
+            y:400
+        },
+        {
+            x:200,
+            y:440
+        },
+        {
+            x:300,
+            y:460
+        },
+        {
+            x:400,
+            y:480
+        },
+        {
+            x:500,
+            y:300
+        }
+    ]
+
+    var line = new Line();
+    line.init(data);
+    </script>
+</body>
+</html>

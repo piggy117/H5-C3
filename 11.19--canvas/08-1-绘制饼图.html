@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas{
+        border:1px solid skyblue;
+    }
+    </style>
+</head>
+<body>
+    <canvas width="800" height="600" ></canvas>
+    <script>
+    // 函数的。属性
+    var Cake = function (ctx) {
+        this.ctx = ctx || document.querySelector('canvas').getContext('2d');
+
+        // 圆的半径
+        this.r = 150;
+        // 画布的的中心==>>圆心
+        this.x0 = this.ctx.canvas.width/2-0.5;
+        this.y0 = this.ctx.canvas.height/2-0.5;
+        // 伸出 的线的长
+        this.outline = 50;
+        // 2π 是一个圆的弧度
+        // 所以  一个弧度是
+        this.radian = Math.PI*2;
+        // 每个小矩形之间的距离
+        this.space = 20;
+        // 小矩形的宽高
+        this.rectW = 50;
+        this.rectH = 20;
+    }
+
+    // 函数的方法：
+    Cake.prototype.show= function(data){
+        var that = this;
+        // 先画出圆弧
+        this.ctx.beginPath();
+        // this.moveTo(0,)
+        // 将分成几部分的圆弧，表示到页面上
+        var angleList = this.distribute(data);
+        var startAngle = 0;        
+        angleList.forEach(function(item,index){
+            var endAngle = startAngle + item.angle;
+            that.ctx.beginPath();
+            that.ctx.moveTo(that.x0,that.y0);
+            that.ctx.arc(that.x0,that.y0,that.r,startAngle,endAngle);
+            var color = that.ctx.fillStyle = that.getColor();
+            that.ctx.fill();
+
+        that.drawTitle(startAngle,item.angle,color,item.title);
+        that.drawDesc(item.title,index);
+         
+            startAngle = endAngle;
+        })
+
+    }
+    Cake.prototype.drawDesc = function(title,index){
+        // 绘制说明，
+        // 矩形的大小
+        // 距离上和左边的间距
+        // 矩形之间的间距
+        this.ctx.fillRect(this.space,this.space+index*(this.space+this.rectH),this.rectW,this.rectH);
+        // 绘制文字
+        this.ctx.beginPath();
+        this.ctx.textAlign = 'left';
+        this.ctx.textBaseline = 'top';
+        this.ctx.font = '12px Microsoft YaHei';
+        this.ctx.fillText(title,this.space+this.rectW + this.space,this.space + index*(this.rectH+this.space));
+    }
+
+
+    // 将每一部分上添加描述
+    Cake.prototype.drawTitle= function(startAngle,angle,color,title){
+        var deg = startAngle + angle/2 ;
+        var l = this.r + this.outline;
+        var outX = Math.cos(deg)*l;
+        var outY = Math.sin(deg)*l;
+        // 先将伸出去的线画出来
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.x0,this.y0);
+        this.ctx.lineTo(this.x0+outX,this.y0+outY);
+        this.ctx.strokeStyle = color;
+        this.ctx.stroke();
+
+        // 画文字和下划线
+        // 获取文字的宽度
+        var width = this.ctx.measureText(title).width;
+        this.ctx.font = '14px Microsoft YaHei';
+        // 上面得出的每一条伸出的线的坐标，x坐标在左边是负值，右边是正值，因为是用的cos，cos在第一和第四象限是正值，第二和第三是负值
+        // 这是根据，每一条伸出的线的横坐标，是否大于圆点，大于的在右边，小于的在左边
+        if(outX+this.x0 > this.x0){
+            // 在右边
+            this.ctx.lineTo(this.x0+outX+width,this.y0+outY);
+            this.ctx.textAlign = 'left';
+        }else{
+            this.ctx.lineTo(this.x0+outX-width,this.y0+outY);
+            this.ctx.textAlign = 'right';
+        }
+        this.ctx.stroke();
+        this.ctx.textBaseline='bottom';
+        this.ctx.fillText(title,outX+this.x0,outY+this.y0);
+    }
+    // 将data数据，换算成一个圆的几部分
+    Cake.prototype.distribute=function(data){
+        var that = this;
+        // 将所有的item.num 相加，然后用其中每一项item.num相除，得出所占比例
+        var total = 0;
+        data.forEach(function(item,index){
+            total += item.num;
+        })
+        console.log(total);
+
+        // 将每个比例算出来之后，返回一个数组
+        data.forEach(function(item,index){
+            var distribute = item.num/total * that.radian;   
+            item.angle = distribute;  
+            })
+            console.log(data);
+            return data;
+    }
+
+    // 添加对应颜色的描述
+    
+    // 表示出颜色
+    Cake.prototype.getColor = function(){
+        var r = Math.floor(Math.random()*256);
+        var g = Math.floor(Math.random()*256);
+        var b = Math.floor(Math.random()*256);
+        return 'rgb('+r+','+g+','+b+')';
+    }
+    var data = [
+        {
+            title:'0-20岁',
+            num:34
+        },
+        {
+            title:'20-30岁',
+            num:36
+        },
+        {
+            title:'30-40岁',
+            num:20
+        },
+        {
+            title:'40-50岁',
+            num:13
+        },
+        {
+            title:'50-60岁',
+            num:23
+        },
+        {
+            title:'60-70岁',
+            num:6
+        }
+    ]
+    var cake = new Cake();
+    cake.show(data);
+    </script>
+</body>
+</html>
