@@ -1,0 +1,273 @@
+body{
+    background: #f5f5f5;
+}
+/*布局容器*/
+.jd_layout {
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+/*顶部搜索*/
+.jd_search {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    /*基于浏览器窗口*/
+    /*使用的是元素的默认位置*/
+/*   width: 100%;
+    height: 40px;
+    background: pink;
+    max-width: 640px;
+    min-width: 320px;*/
+}
+.jd_search .jd_search_box{
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    height: 40px;
+    background: rgba(201,21,35,0);
+    position: relative;
+}
+.jd_search .jd_search_box .icon_logo{
+    width: 60px;
+    height: 36px;
+    position: absolute;
+    left: 5px;
+    top: 4px;
+    background-position: 0 -103px;
+}
+.jd_search .jd_search_box .login{
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+}
+.jd_search .jd_search_box form{
+    width: 100%;
+    padding-left:65px;
+    padding-right:50px;
+}
+.jd_search .jd_search_box form input{
+    /*百分比布局  基于父容器的内容确定*/
+    width: 100%;
+    height: 30px;
+    border-radius: 15px;
+    margin-top:5px;
+    padding-left: 30px;
+}
+.jd_search .jd_search_box form .icon_search{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 70px;
+    background-position: -60px -109px;
+}
+/*轮播图*/
+.jd_banner{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.jd_banner ul:first-child{
+    width: 1000%;
+    transform: translateX(-10%);
+    -webkit-transform: translateX(-10%);
+}
+.jd_banner ul:first-child li{
+    width: 10%;
+    float: left;
+}
+.jd_banner ul:first-child li a{
+    width: 100%;
+    display: block;
+}
+.jd_banner ul:first-child li a img{
+    /*图片特性  宽度100% 高度自适应*/
+    width: 100%;
+    display: block;
+}
+.jd_banner ul:last-child{
+    position: absolute;
+    bottom: 6px;
+    left:50%;
+    width: 118px;
+    margin-left:-59px;
+}
+.jd_banner ul:last-child li{
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    float: left;
+    margin-left:10px;
+}
+.jd_banner ul:last-child li:first-child{
+    margin-left:0;
+}
+.jd_banner ul:last-child li.now{
+    background: #fff;
+}
+/*导航栏*/
+.jd_nav{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+.jd_nav ul{
+    width: 100%;
+    padding: 10px 0;
+}
+.jd_nav ul li{
+    width: 25%;
+    float: left;
+}
+.jd_nav ul li a{
+    display: block;
+    width: 100%;
+}
+.jd_nav ul li a img{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+.jd_nav ul li a p{
+    text-align: center;
+    padding: 5px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+/*商品区域*/
+.jd_product{
+    width: 100%;
+    padding: 0 5px;
+}
+.jd_product .jd_pro_box{
+    width: 100%;
+    margin-top:10px;
+    min-height: 200px;
+    background: #fff;
+    /*box-shadow 几个参数？ x轴的偏移 y轴的偏移 模糊度 阴影的延伸 阴影颜色 内阴影*/
+    box-shadow: 0 0 1px #ccc;
+}
+.jd_product .jd_pro_box .tit{
+    height: 34px;
+    line-height: 34px;
+    border-bottom: 1px solid #ddd;
+}
+.jd_product .jd_pro_box .tit.nb{
+    border-bottom: none;
+}
+.jd_product .jd_pro_box .tit h3{
+    font-weight: normal;
+    padding-left:20px;
+    position: relative;
+}
+.jd_product .jd_pro_box .tit h3::before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    width: 3px;
+    height: 12px;
+    background: #d8505c;
+}
+
+/*秒杀*/
+.sk{}
+.sk .sk_icon{
+    width: 16px;
+    height: 20px;
+    float: left;
+    margin-left:10px;
+    margin-top:6px;
+    background: url("../images/seckill-icon.png") no-repeat center/16px 20px;
+}
+.sk .sk_name{
+    float: left;
+    margin-left: 10px;
+    color: #d8505c;
+}
+.sk .sk_time{
+    float: left;
+    margin-left: 10px;
+}
+.sk .sk_time span{
+    float: left;
+    width: 16px;
+    height: 16px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 16px;
+    font-size: 12px;
+    margin-left: 3px;
+    margin-top: 8px;
+}
+.sk .sk_time span:nth-child(3n){
+    background: #fff;
+    width: 3px;
+    color: #333;
+}
+.sk .sk_product{
+    width: 100%;
+    padding: 15px 0;
+}
+.sk .sk_product li{
+    width: 33.3333%;
+    float: left;
+}
+.sk .sk_product li a{
+    display: block;
+    width: 100%;
+    border-right: 1px solid #ddd;
+}
+.sk .sk_product li:last-child a{
+    border-right: none;
+}
+
+.sk .sk_product li a img{
+    display: block;
+    width: 64%;
+    margin: 0 auto;
+}
+.sk .sk_product li p{
+    font-size: 12px;
+    text-align: center;
+    padding-top: 5px;
+}
+.sk .sk_product li .nowPrice{
+    color: #d8505c;
+}
+.sk .sk_product li .oldPrice{
+    color: #666;
+    text-decoration: line-through;
+}
+
+/*商品容器 组合样式*/
+.b_left{
+    border-left: 1px solid #ddd;
+}
+.b_right{
+    border-right: 1px solid #ddd;
+}
+.b_bottom{
+    border-bottom: 1px solid #ddd;
+}
+.w_50{
+    width: 50%;
+}
+.w_50 img{
+    display: block;
+    width: 100%;
+}

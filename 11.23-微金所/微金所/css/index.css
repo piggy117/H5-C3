@@ -1,0 +1,84 @@
+
+*{
+    margin:0;
+    padding:0;
+}
+.wjs_header .container .row a{
+    color:#000;
+    font-size:10px;
+    text-decoration:none;
+}
+.wjs_header .container .row a:hover{
+    color:#000;
+}
+
+.wjs_header{
+    height: 40px;
+    border-bottom:1px solid #ddd;
+}
+.container{
+    height: 100%;
+    margin:0 auto;
+}
+.container .row{
+    height: 100%;
+    margin:0 auto;
+}
+.container .row div  {
+    height: 100%;
+    border-left:1px solid #ccc; 
+    text-align:center;
+    line-height:40px;   
+}
+.container .row div:first-child{
+    border-left:0;
+}
+@font-face{
+    font-family:wjs;
+    src:url(../fonts/MiFie-Web-Font.svg) format('svg'),
+    url(../fonts/MiFie-Web-Font.woff) format('woff'),
+    url(../fonts/MiFie-Web-Font.eot) format('embedded-opentype'),
+    url(../fonts/MiFie-Web-Font.ttf) format('ruetype');
+  /* //四种 图片格式是为了兼容浏览器，固定的，// */
+  }
+.wjs_icon{
+    font-family:wjs;
+}
+.wjs_icon_phone::before{
+    content:'\e908';
+}
+.wjs_icon_tel::before{
+    content:'\e909';
+}
+.wjs_phone{
+    position:relative;
+    display:block;
+}
+.wjs_phone img{
+    position: absolute;
+    top:39px;
+    left:17px;
+    border:1px solid #ccc;
+    border-top:none;
+    display:none;
+}
+.wjs_phone:hover img{
+    display:block;
+}
+
+.wjs_header .btn-danger {
+    border-color:#e92322;
+    background-color: #e92322;
+}
+.wjs_header .btn-danger:hover{
+    background-color: #e92322;
+    border-color:#e92322;  
+}
+.wjs_header .container .row  .btn-danger{
+    color:white;
+    height: 25px;
+    line-height:15px;
+}
+.wjs_header .container .row  .btn-danger:hover{
+    color:white;
+}

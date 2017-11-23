@@ -1,0 +1,64 @@
+/*============ reset css ==============*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    /*统一元素的尺寸计算方式为从边框开始计算*/
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /*去除轻触高亮颜色*/
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    font-size: 14px;
+    color: #333;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+ul{
+    list-style: none;
+}
+input[type="text"],input[type="password"],input[type="search"],textarea{
+    border: none;
+    outline: none;
+    /*针对文本域 不让改变尺寸*/
+    resize: none;
+    /*在移动端输入框有 立体样式 默认样式*/
+    -webkit-appearance: none;
+}
+/*============ common css ==============*/
+.f_left{
+     float: left;
+ }
+.f_right{
+    float: right;
+}
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    display: block;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+    clear: both;
+}
+.ml10{
+    margin-left:10px;
+}
+.mr10{
+    margin-right:10px;
+}
+.mt10{
+    margin-top:10px;
+}
+.mb10{
+    margin-bottom:10px;
+}
+/*使用精灵图*/
+[class^="icon_"],[class*=" icon_"]{
+    background: url("../images/sprites.png") no-repeat 10000px 10000px/ 200px 200px;
+}
